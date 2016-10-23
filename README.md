@@ -1,2 +1,2 @@
 # Fillit
-How to fit whiskey in an elephant of glass.
+How to fit whiskey in a glass elephant.
