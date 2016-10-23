@@ -6,7 +6,7 @@
 #    By: chansen <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/10/20 17:17:45 by chansen           #+#    #+#              #
-#    Updated: 2016/10/20 17:31:36 by chansen          ###   ########.fr        #
+#    Updated: 2016/10/21 20:15:25 by chansen          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,10 @@ FLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
 all:
-	$(CC) $(FLAGS) -o $(NAME)
+	$(NAME)
+
+$(NAME):
+	$(CC) $(FLAGS) $(SRC) -o $(NAME) -L $(LIBFT) -lft
 
 clean:
 	$(RM) $(OBJ)
