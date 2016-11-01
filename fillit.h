@@ -6,7 +6,7 @@
 /*   By: chansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/20 20:01:41 by chansen           #+#    #+#             */
-/*   Updated: 2016/10/20 20:35:02 by chansen          ###   ########.fr       */
+/*   Updated: 2016/10/23 00:27:48 by chansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,15 @@
 # include <sys/types.h>
 # include <sys/uio.h>
 
-type struct			s_tetri
+typedef struct s_tetri	t_tetri;
+
+struct					s_tetri
 {
-
-
-	struct s_tetri	*next;
-}							t_tetri;
+	char	*str;
+	char	c;
+	int		x[4];
+	int		y[4];
+	struct s_tetri		*next;
+};
 
 #endif
