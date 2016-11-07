@@ -15,11 +15,11 @@ NAME = fillit
 HEAD = fillit.h
 
 SRC = main.c \
-	  open.c \
+	./libft/*.c \
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(SRC:%.c=%.o)
 
-LIBFT = ../libft/
+LIBFT = ./libft/
 
 CC = gcc
 
@@ -27,19 +27,18 @@ FLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 
-all:
-	$(NAME)
+all: $(NAME)
 
 $(NAME):
-	$(CC) $(FLAGS) $(SRC) -o $(NAME) -L $(LIBFT) -lft
+	$(CC) $(FLAGS) $(SRC) -I ./libft/libft.h -I $(HEAD) -o $(NAME) 
 
 clean:
 	$(RM) $(OBJ)
-	make clean -C $(LIBFT)
+	# make clean -C $(LIBFT)
 
 fclean:
 	clean $(RM) $(NAME)
-	make fclean -C $(LIBFT)
+	# make fclean -C $(LIBFT)
 
 re:
 	clean all
