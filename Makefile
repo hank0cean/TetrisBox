@@ -1,44 +1,34 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: chansen <marvin@42.fr>                     +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2016/10/20 17:17:45 by chansen           #+#    #+#              #
-#    Updated: 2016/10/21 20:15:25 by chansen          ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = fillit
 
 HEAD = fillit.h
 
-SRC = main.c \
-	./libft/*.c \
+SRC = 	$(LIBFT)libft.a \
+		utils.c \
+		check.c \
+		store.c \
+		solve.c \
+		main.c \
 
-OBJ = $(SRC:%.c=%.o)
+LIBFT = libft/
 
-LIBFT = ./libft/
+CCFLAGS = -Wall -Werror -Wextra
 
-CC = gcc
-
-FLAGS = -Wall -Wextra -Werror
-
-RM = rm -f
+RM = rm -rf
 
 all: $(NAME)
 
 $(NAME):
-	$(CC) $(FLAGS) $(SRC) -I ./libft/libft.h -I $(HEAD) -o $(NAME) 
+	make -C $(LIBFT) re
+	gcc $(CCFLAGS) -o $(NAME) $(SRC)
 
 clean:
-	$(RM) $(OBJ)
-	# make clean -C $(LIBFT)
+	$(RM) utils.o check.o store.o solve.o main.o
+	make -C $(LIBFT) clean
 
-fclean:
-	clean $(RM) $(NAME)
-	# make fclean -C $(LIBFT)
+fclean: clean
+	make -C $(LIBFT) fclean
+	$(RM) $(NAME)
 
-re:
-	clean all
+re: fclean all
+
+.PHONY: all clean fclean re
