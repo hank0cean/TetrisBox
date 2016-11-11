@@ -49,8 +49,8 @@ int		sizeup(t_tetri *lst)
 
 int		newlineseparators(char *tstr)
 {
-	if (tstr[0] != '\n' && tstr[4] == '\n' && tstr[9] == '\n' && tstr[14] ==
-		'\n' && tstr[19] == '\n' && (tstr[20] == '\n' || tstr[20] == '\0'))
+	if (tstr[0] != '\n' && tstr[4] == '\n' && tstr[9] == '\n' && tstr[14]
+		== '\n' && (tstr[19] == '\n' || tstr[19] == '\0' || tstr[20] == '\n'))
 		return (1);
 	else
 		return (0);
