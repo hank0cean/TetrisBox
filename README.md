@@ -1,2 +1,2 @@
 # Fillit
-How to fit whiskey in a glass elephant.
+This is sort of like Tetris?
